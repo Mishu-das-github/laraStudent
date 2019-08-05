@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('ajaxdata', 'AjaxdataController@index')->name('ajaxdata');
+Route::get('edit/{id}', 'AjaxdataController@edit')->name('edit');
+Route::get('delete/{id}', 'AjaxdataController@delete')->name('delete');
 Route::get('ajaxdata/getdata', 'AjaxdataController@getdata')->name('ajaxdata.getdata');

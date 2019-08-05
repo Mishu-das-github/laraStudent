@@ -29,6 +29,7 @@
                 <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
+                    <th>Image</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -48,6 +49,16 @@
                     {
                        data : 'last_name',
                        name : 'last_name'
+                   },
+                   {
+                    data: 'image',
+                    name: 'image',
+                    render: function(data, type, full, meta)
+                    {
+                        return "<img src={{ URL::to('/')}}/images/" + data +" width='70' class='img-thumbnail'/>";
+
+                    },
+                    orderable:false
                    },
                    {
                        data :'action',

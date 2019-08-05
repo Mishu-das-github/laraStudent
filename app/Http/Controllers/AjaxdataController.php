@@ -13,14 +13,18 @@ class AjaxdataController extends Controller
     }
     public function getdata()
     {
-        $students = Student::select('first_name', 'last_name');
+        $students = Student::latest()->get();
+        /**
+         * Or
+         * $students = Student::select('*');
+         */
 
         if (request()->ajax()) {
             return DataTables::of($students)
                 ->addColumn('action', function ($data) {
-                    $button = '<button type="button" name="edit" id="' . $data->id . '" class="edit btn btn-primary btn-sm">Edit</button>';
+                    $button = '<a class="btn btn-primary" href="http://localhost/laraStudent/public/edit/' . $data->id . '">Edit</a>';
                     $button .= '&nbsp;&nbsp;';
-                    $button .= '<button name="delete" type="button" id="' . $data->id . '" class="delete btn btn-danger btn-sm">Delete</button>';
+                    $button .= '<a class="btn btn-danger" href="http://localhost/laraStudent/public/delete/' . $data->id . '">Delete</a>';
                     return $button;
                 })
                 ->rawColumns(['action'])
@@ -29,5 +33,14 @@ class AjaxdataController extends Controller
 
         // return DataTables::of($students)->make(true);
 
+    }
+    public function edit($id)
+    {
+        dd("This is " . $id);
+    }
+
+    public function delete($id)
+    {
+        dd("This is " . $id);
     }
 }

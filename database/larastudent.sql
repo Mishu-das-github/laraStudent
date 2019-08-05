@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2019 at 09:37 AM
+-- Generation Time: Aug 05, 2019 at 01:42 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.27
 
@@ -39,9 +39,9 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_08_04_051359_create_students_table', 1);
+(4, '2014_10_12_000000_create_users_table', 1),
+(5, '2014_10_12_100000_create_password_resets_table', 1),
+(6, '2019_08_04_051359_create_students_table', 1);
 
 -- --------------------------------------------------------
 
@@ -65,6 +65,7 @@ CREATE TABLE `students` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `first_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -73,20 +74,20 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES
-(1, 'Mishu', 'Das', NULL, NULL),
-(2, 'Andrew', 'Koushik', NULL, NULL),
-(3, 'Sanjoy', 'Dhar', NULL, NULL),
-(4, 'Tuhin', 'Debnath', NULL, NULL),
-(5, 'Shoikat', 'Das', NULL, NULL),
-(6, 'Dip', 'Podder', NULL, NULL),
-(7, 'Chandra', 'Banik', NULL, NULL),
-(8, 'Arpan', 'Gupta', NULL, NULL),
-(9, 'Rahmat', 'Ullah', NULL, NULL),
-(10, 'Mrityunjoy', 'Das', NULL, NULL),
-(11, 'Ovi', 'Das', NULL, NULL),
-(12, 'Srithy', 'Nath', NULL, NULL),
-(13, 'Shubho', 'Banik', NULL, NULL);
+INSERT INTO `students` (`id`, `first_name`, `last_name`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'Mishu', 'Das', '1.jpg', NULL, NULL),
+(2, 'Andrew', 'Koushik', '2.jpg', NULL, NULL),
+(3, 'Sanjoy', 'Dhar', '3.png', NULL, NULL),
+(4, 'Tuhin', 'Debnath', '4.png', NULL, NULL),
+(5, 'Shoikat', 'Das', '5.png', NULL, NULL),
+(6, 'Dip', 'Podder', '6.png', NULL, NULL),
+(7, 'Chandra', 'Banik', '7.png', NULL, NULL),
+(8, 'Arpan', 'Gupta', '8.png', NULL, NULL),
+(9, 'Rahmat', 'Ullah', '9.png', NULL, NULL),
+(10, 'Mrityunjoy', 'Das', '10.png', NULL, NULL),
+(11, 'Ovi', 'Das', '11.jpg', NULL, NULL),
+(12, 'Srithy', 'Nath', '12.png', NULL, NULL),
+(13, 'Shubho', 'Banik', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -142,7 +143,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `students`
